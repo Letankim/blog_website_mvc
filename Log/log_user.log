@@ -1,0 +1,42 @@
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND P.id <> 50 AND P.status=1 AND N.status=1 ORDER BY P.priority desc ,P.id D...' at line 2) 2023/08/26 19:27:05
+User: UPDATE (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/05 12:20:15
+User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':name, email=:email, avatar=:img WHERE id=:id' at line 1) 2023/12/05 12:20:42
+User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':name, email=:email, avatar=:img WHERE id=:id' at line 1) 2023/12/05 12:20:49
+User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':name, email=:email, avatar=:img WHERE id=:id' at line 1) 2023/12/05 12:21:38
+User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':name, email=:email, avatar=:img WHERE id=:id' at line 1) 2023/12/05 12:21:47
+User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':newPass WHERE id=:id' at line 1) 2023/12/05 12:23:46
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 14:39:11
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 14:43:44
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 15:00:49
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 15:01:05
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 15:02:55
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 15:02:55
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 15:02:55
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 15:02:55
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 15:02:55
+User: GET ALL (SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in where clause is ambiguous) 2023/12/07 15:03:04
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:42:45
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:42:45
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:42:52
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:42:52
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:44:26
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:44:26
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:45:04
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:45:04
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:45:12
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:45:12
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:47:41
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:47:56
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/08 15:47:58
+User: UPDATE (SQLSTATE[42S02]: Base table or view not found: 1146 Table 'myblog.tbl_commen' doesn't exist) 2023/12/09 18:07:41
+User: UPDATE (SQLSTATE[42S02]: Base table or view not found: 1146 Table 'myblog.tbl_commen' doesn't exist) 2023/12/09 18:08:38
+User: UPDATE (SQLSTATE[42S02]: Base table or view not found: 1146 Table 'myblog.tbl_commen' doesn't exist) 2023/12/09 18:09:00
+User: UPDATE (SQLSTATE[42S02]: Base table or view not found: 1146 Table 'myblog.tbl_commen' doesn't exist) 2023/12/09 18:09:07
+User: UPDATE (SQLSTATE[42S02]: Base table or view not found: 1146 Table 'myblog.tbl_commen' doesn't exist) 2023/12/09 18:09:11
+User: GET ALL (SQLSTATE[HY000]: General error: 2006 MySQL server has gone away) 2023/12/21 09:07:46
+User: GET BY ID (SQLSTATE[HY000]: General error: 2006 MySQL server has gone away) 2023/12/21 09:07:50
+User: GET ALL (SQLSTATE[HY000]: General error: 2006 MySQL server has gone away) 2023/12/25 14:19:34
+User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(username ='bloguser37') where id='37'' at line 1) 2023/12/25 15:54:11
+User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(username ='bloguser38') where id='38'' at line 1) 2023/12/25 15:55:11
+User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(username ='bloguser39') where id='39'' at line 1) 2023/12/25 15:56:25
+User: GET BY ID (SQLSTATE[HY000]: General error: 2006 MySQL server has gone away) 2023/12/27 15:08:01

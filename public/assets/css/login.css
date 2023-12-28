@@ -1,0 +1,91 @@
+.wrapper-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('http://letankim.id.vn/uploads/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.wrapper-auth .title-auth {
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.box-auth {
+    width: 500px;
+    padding: 10px;
+}
+
+.group-input .mb-3 input {
+    background-color: transparent;
+    border: 1px solid #b3b3b3;
+    color: #fff;
+}
+
+.group-input button {
+    width: 100%;
+}
+
+.message_error {
+    color: #e00808;
+}
+
+.show-message {
+    margin-top: 10px;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+.show-message.success {
+    color: #029007;
+}
+
+.show-message.error {
+    color: #e00808;
+}
+
+.box-navigation-page {
+    display: flex;
+    flex-direction: column;
+}
+.login-have-gg {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.login-have-gg a {
+    max-width: 50%;
+    flex-grow: 1;
+}
+.box-navigation-page span{
+    display: block;
+    text-align: center;
+    margin: 5px 0px;
+    font-size: 15px;
+    color: #fff;
+}
+.navigation-page {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 0px;
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.navigation-page:hover {
+    color: #fff;
+}
+
+.forget-password {
+    display: block;
+    text-align: right;
+    color: #fff;
+    text-decoration: none
+}

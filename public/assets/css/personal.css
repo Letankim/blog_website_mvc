@@ -1,0 +1,112 @@
+.wrapper-personal {
+    padding: 20px 0;
+}
+.wrapper-personal h1{
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin: 0;
+    color: var(--main-text);
+}
+.personal-content {
+    color: var(--main-text);
+    padding: 0px 10px;
+}
+.list-personal {
+    list-style: none;
+}
+.item-personal {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px;
+}
+.item-personal img {
+    width: 50%;
+    object-fit: contain;
+}
+.item-personal-title {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.item-personal p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+.update-information {
+    flex-direction: row;
+    gap: 10px;
+}
+.open-box {
+    display: block;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* change information */
+.change-information-user,
+.change-password {
+    display: none;
+}
+.change-information-user.active,
+.change-password.active {
+    display: block;
+}
+.box-change-information h2 {
+    font-size: 3rem;
+}
+.box-change-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box-change-input input,
+.box-change-input button {
+    width: 50%;
+}
+
+.box-change-input button {
+    padding: 7px;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.box-change-input input {
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    outline: none;
+}
+
+.box-change-input .group-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.group-input .preview-image {
+    margin-top: 10px;
+    width: 200px;
+    object-fit: contain;
+}
+
+.box-change-input .group-input span {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.error-message {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.error-message.success {
+    color: #029007;
+}
+
+.error-message.error {
+    color: #e00808;
+}

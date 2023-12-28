@@ -1,0 +1,11 @@
+User: UPDATE VALUE (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/08/29 17:06:25
+Admin: CONNECT (SQLSTATE[HY000] [2006] MySQL server has gone away) 2023/12/07 21:04:36
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:04:40
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:04:44
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:04:54
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:04:58
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:05:02
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:05:06
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:05:10
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:05:14
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/07 21:05:18

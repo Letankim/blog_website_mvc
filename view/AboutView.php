@@ -13,7 +13,6 @@
     <title>Về tôi</title>
 </head>
 <body>
-    <div class="wrapper">
         <?php
             echo showHeaderNavigation();
         ?>
@@ -42,7 +41,6 @@
         <?php
             footer();
         ?>
-    </div>
     <script src="./public/assets/js/app.js"></script>
 </body>
 </html>

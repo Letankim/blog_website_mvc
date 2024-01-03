@@ -13,18 +13,22 @@ class SloganDao {
         self::$db = new ConnectionAdmin();
     }
 
+    private function slogan($row) {
+        $id = $row['id'];
+        $topSlogan = $row['topslogan'];
+        $bottomSlogan = $row['bottomslogan'];
+        $status = $row['status'];
+        $date = $row['date'];
+        $slogan = new Slogan($id, $topSlogan, $bottomSlogan, $status, $date);
+        return $slogan;
+    }
+
     function getAllSlogan() {
         $sql = "SELECT * FROM tbl_slogan ORDER BY id DESC";
         $resultSQL = self::$db->getAll($sql);
         $slogans = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $topSlogan = $row['topslogan'];
-            $bottomSlogan = $row['bottomslogan'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $slogan = new Slogan($id, $topSlogan, $bottomSlogan, $status, $date);
-            $slogans[] = $slogan;
+            $slogans[] = $this->slogan($row);
         }
         return $slogans;
     }
@@ -35,13 +39,7 @@ class SloganDao {
         $resultSQL = self::$db->getAll($sql, $params);
         $slogans = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $topSlogan = $row['topslogan'];
-            $bottomSlogan = $row['bottomslogan'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $slogan = new Slogan($id, $topSlogan, $bottomSlogan, $status, $date);
-            $slogans[] = $slogan;
+            $slogans[] = $this->slogan($row);
         }
         return $slogans;
     }
@@ -50,16 +48,11 @@ class SloganDao {
         $sql = "SELECT * FROM tbl_slogan WHERE id=:id";
         $row = self::$db->get_one($sql, $params);
         if($row) {
-            $id = $row['id'];
-            $topSlogan = $row['topslogan'];
-            $bottomSlogan = $row['bottomslogan'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $slogan = new Slogan($id, $topSlogan, $bottomSlogan, $status, $date);
-            return $slogan;
+            return $this->slogan($row);;
         }
         return null;
     }
+    
     function addSlogan($slogan) {
         $params = array(
             ":status"=>$slogan->getStatus(),

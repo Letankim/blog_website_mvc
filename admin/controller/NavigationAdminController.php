@@ -1,6 +1,8 @@
 <?php
 require_once PATH_ROOT_ADMIN."/DAO/NavigationDao.php";
 require_once PATH_ROOT."/model/Navigation.php";
+include_once PATH_ROOT_ADMIN."/view/handleShow/showNavigation.php";
+require_once PATH_ROOT."/Lib/Time.php";
 class NavigationAdminController {
     public function adminNavigation() {
         $navigationDao = new NavigationDao();
@@ -12,7 +14,7 @@ class NavigationAdminController {
         $navigationDao = new NavigationDao();
         $navigation = $_POST['navigation'];
         $status = $_POST['status'];
-        $date= date('Y/m/d H:i:s');
+        $date= getCurrentTime();
         $navigation = new Navigation(null, $navigation, $status, $date);
         $isDone = $navigationDao->addNavigation($navigation);
         $type = "fail";

@@ -46,7 +46,7 @@ html *::-webkit-scrollbar-track {
     transform: translateY(-50%);
     width: 100px;
     height: 65px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 .wrapper_app {

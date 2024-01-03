@@ -3,7 +3,7 @@ require_once "./config/config.php";
 require_once "./DAO/UserDao.php";
 require_once "./DAO/CommentDao.php";
 require_once "./Lib/CreateLink.php";
-    function showAllPost($allPostInPage) {
+    function showPostFeatured($allPostInPage) {
         $userDao = new UserDao();
         $commentDao = new CommentDao();
         $createLink = new CreateLink();
@@ -49,7 +49,7 @@ require_once "./Lib/CreateLink.php";
             echo "<img style='width: 100%;' src='./uploads/no-post.png'/>";
         }
     }
-    function showPostFeatured($postFeature) {
+    function showPostNormal($postFeature) {
         $createLink = new CreateLink();
         $result = "";
         if(count($postFeature) > 0) {
@@ -91,7 +91,7 @@ require_once "./Lib/CreateLink.php";
                     <a href="./post-'.$item->getId().'/'.$createLink->vn_to_str($item->getTitle()).'.html" class="link-hidden"></a>
                     <div class="row g-0">
                         <div class="col-md-5">
-                            <img src="./uploads/'.$item->getImg().'" class="img-fluid rounded-start" alt="'.$item->getTitle().'">
+                            <img src="./uploads/'.$item->getImg().'" class="img-fluid rounded-start h-320" alt="'.$item->getTitle().'">
                         </div>
                         <div class="col-md-7 card-in-post">
                             <div class="author">

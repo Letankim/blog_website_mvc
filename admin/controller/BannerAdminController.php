@@ -1,7 +1,9 @@
 <?php
 require_once PATH_ROOT_ADMIN."/DAO/BannerDao.php";
 require_once PATH_ROOT."/model/Banner.php";
+include_once PATH_ROOT_ADMIN."/view/handleShow/showBanner.php";
 require_once PATH_ROOT."/Lib/Upload.php";
+require_once PATH_ROOT."/Lib/Time.php";
 class BannerAdminController {
     public function adminBanner() {
         $bannerDao = new BannerDao();
@@ -16,7 +18,7 @@ class BannerAdminController {
         $status = $_POST["status"];
         $target_dir = "../uploads/";
         $img = $upload->uploadImage($target_dir, $_FILES["image"]);
-        $date= date('Y/m/d H:i:s');
+        $date= getCurrentTime();
         $banner = new Banner(null, $img, $status, $date);
         $isDone  = $bannerDao->addBanner($banner);
         $type = "fail";

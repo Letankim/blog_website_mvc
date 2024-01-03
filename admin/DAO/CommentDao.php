@@ -13,19 +13,22 @@ class CommentDao {
         self::$db = new ConnectionAdmin();
     }
 
+    private function comment($row) {
+        $id = $row['id'];
+        $idUser = $row['idUser'];
+        $idPost = $row['idPost'];
+        $comment = $row['comment'];
+        $time_comment = $row['time_comment'];
+        $comment = new Comment($id, $idUser, $idPost, $comment, $time_comment);
+        return $comment;
+    }
+
     function getOneComment($id) {
         $params = array(':id' => $id);
         $sql = "SELECT * FROM tbl_comment WHERE id=:id";
         $row = self::$db->get_one($sql, $params);
         if($row) {
-            $id = $row['id'];
-            $idUser = $row['idUser'];
-            $idPost = $row['idPost'];
-            $comment = $row['comment'];
-            $timeComment = $row['time_comment'];
-            $status = $row['status'];
-            $comment = new Comment($id, $idUser, $idPost, $comment, $timeComment, $status);
-            return $comment;
+            return $this->comment($row);
         }
         return null;
     }
@@ -35,14 +38,7 @@ class CommentDao {
         $comments = array();
         $resultSQL = self::$db->getAll($sql, $params);
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $idUser = $row['idUser'];
-            $idPost = $row['idPost'];
-            $comment = $row['comment'];
-            $timeComment = $row['time_comment'];
-            $status = $row['status'];
-            $comment = new Comment($id, $idUser, $idPost, $comment, $timeComment, $status);
-            $comments[] = $comment;
+            $comments[] = $this->comment($row);
         }
         return $comments;
     }
@@ -53,14 +49,7 @@ class CommentDao {
         $comments = array();
         $resultSQL = self::$db->getAll($sql, $params);
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $idUser = $row['idUser'];
-            $idPost = $row['idPost'];
-            $comment = $row['comment'];
-            $timeComment = $row['time_comment'];
-            $status = $row['status'];
-            $comment = new Comment($id, $idUser, $idPost, $comment, $timeComment, $status);
-            $comments[] = $comment;
+            $comments[] = $this->comment($row);
         }
         return $comments;
     }

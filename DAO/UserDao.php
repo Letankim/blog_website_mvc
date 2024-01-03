@@ -11,6 +11,7 @@ class UserDao {
     private function initializeConnection() {
         self::$db = new Connection();
     }
+
     private function user($row) {
         $id = $row['id'];
         $name = $row['name'];
@@ -25,6 +26,8 @@ class UserDao {
         $user = new User($id, $name,$username, $password, $email, $avatar, $status, $date, $role, $isGoogle);
         return $user;
     }
+
+
     function getAllUsers() {
         $sql = "SELECT * FROM tbl_user";
         $resultSQL = self::$db->getAll($sql);
@@ -39,9 +42,11 @@ class UserDao {
             ':email' => $user->getEmail(),
             ':username' => $user->getUsername(),
             ':password' => $user->getPassword(),
-            ':date' => $user->getDate()
+            ':date' => $user->getDate(),
+            ":isGoogle"=>$user->getIsGoogle()
         );
-        $sql = "INSERT INTO tbl_user (email, username, password, date) VALUES (:email, :username, :password, :date)";
+        $sql = "INSERT INTO tbl_user (email, username, password, date, isGoogle) 
+        VALUES (:email, :username, :password, :date, :isGoogle)";
         return self::$db->insert($sql, $params);
     }
 
@@ -74,15 +79,6 @@ class UserDao {
         return null;
     }
 
-    function getOneUser($id) {
-        $params = array(":id"=>$id);
-        $sql = "SELECT * FROM tbl_user WHERE id = :id";
-        $resultSQL = self::$db->get_one($sql, $params);
-        if($resultSQL) {
-            return $this->user($resultSQL);
-        }
-        return null;
-    }
 
     function updateUsernameGoogle($username, $id) {
         $params = array(
@@ -91,6 +87,16 @@ class UserDao {
         );
         $sql = "UPDATE tbl_user SET username =:username WHERE id=:id";
         return self::$db->update($sql, $params);
+    }
+
+    function getOneUser($id) {
+        $params = array(":id"=>$id);
+        $sql = "SELECT * FROM tbl_user WHERE id = :id";
+        $resultSQL = self::$db->get_one($sql, $params);
+        if($resultSQL) {
+            return $this->user($resultSQL);
+        }
+        return null;
     }
 
     function isExistGoogle($email) {
@@ -102,6 +108,7 @@ class UserDao {
         }
         return null;
     }
+
     function updateNewPass($id, $newPass) {
         $params = array(
             ":id"=>$id,
@@ -110,6 +117,7 @@ class UserDao {
         $sql = "UPDATE tbl_user SET password=:newPass WHERE id=:id";
         return self::$db->update($sql, $params);
     }
+
     function updateUserPersonal($id, $name, $email, $img) {
         $params = array(
             ":id"=>$id,
@@ -120,6 +128,7 @@ class UserDao {
         $sql = "UPDATE tbl_user SET name=:name, email=:email, avatar=:img WHERE id=:id";
         return self::$db->update($sql, $params);
     }
+
     function checkUpdatePassword($id, $oldPass) {
         $params = array(
             ":id" => $id,
@@ -132,17 +141,7 @@ class UserDao {
         }
         return null;
     }
-    function login($username) {
-        $params = array(
-            ":username" => $username
-        );
-        $sql = "SELECT * FROM tbl_user WHERE username = :username";
-        $resultSQL = self::$db->get_one($sql, $params);
-        if($resultSQL) {
-            return $this->user($resultSQL);
-        }
-        return null;
-    }
+
     function checkUserName($username) {
         $params = array(
             ":username" => $username

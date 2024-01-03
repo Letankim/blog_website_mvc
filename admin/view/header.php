@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../uploads/logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="./public/css/main.css">
@@ -11,11 +12,6 @@
     <link rel="stylesheet" href="./public/css/form.css">
     <link rel="stylesheet" href="./public/css/responsive.css">
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <script src="./public/js/validator.js"></script>
@@ -64,7 +60,7 @@
                     <li class="nav_item">
                         <a href="index.php?act=navigation" class="nav_item_link">
                             <i class='bx bxs-navigation' ></i>
-                            Navigation
+                            Danh mục
                         </a>
                     </li>
                     <li class="nav_item">
@@ -79,12 +75,18 @@
                             Bài viết
                         </a>
                     </li>
+                    <?php
+                        if($_SESSION['roleAdmin'] && $_SESSION['roleAdmin'] == 2) {
+                    ?>   
                     <li class="nav_item">
                         <a href="index.php?act=account" class="nav_item_link">
                             <i class='bx bxs-user-account' ></i>
                             Tài khoản
                         </a>
                     </li>
+                    <?php
+                        }
+                    ?>
                     <li class="nav_item">
                         <a href="index.php?act=about" class="nav_item_link">
                             <i class='bx bxs-color'></i>
@@ -100,13 +102,13 @@
                     <li class="nav_item">
                         <a href="index.php?act=advertise" class="nav_item_link">
                             <i class='bx bxs-badge-dollar'></i>
-                            Advertise
+                            Popup
                         </a>
                     </li>
                     <li class="nav_item">
                         <a href="index.php?act=product" class="nav_item_link">
                             <i class='bx bxs-badge-dollar'></i>
-                            Product
+                            Sản phẩm
                         </a>
                     </li>
                 </ul>

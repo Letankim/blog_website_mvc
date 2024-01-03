@@ -49,18 +49,9 @@
 .box_input_pass i.bx-hide {
    left: unset;
    right: 10px;
-   display: none;
    cursor: pointer;
 }
-.box_input_pass i.bx-hide {
-   display: block;
-}
-.box_input_pass.active .bx-show{
-   display: block;
-}
-.box_input_pass.active .bx-hide{
-   display: none;
-}
+
 .input {
    width: 100%;
    padding: 12px 13px 10px 44px;

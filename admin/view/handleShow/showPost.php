@@ -6,6 +6,9 @@
                     <th>STT</th>
                     <th>Title</th>
                     <th>Danh mục</th>
+                    <th>Thêm bởi</th>
+                    <th>Cập nhật bởi</th>
+                    <th>Lên lịch lúc</th>
                     <th>Ưu tiên</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
@@ -13,13 +16,19 @@
                 <tbody>';
                     if(count($allPost) > 0) {
                         $navigationDao = new NavigationDao();
+                        $userDao = new UserDao();
                         $i = 1;
                         foreach ($allPost as $itemPost) {
                             $id = $itemPost->getId();
                             $title = $itemPost->getTitle();
                             $status = $itemPost->getStatus();
                             $priority = $itemPost->getPriority();
+                            $schedule = $itemPost->getSchedule();
                             $nameNav = $navigationDao->getOneNav($itemPost->getId_nav())->getName();
+                            $userAdd = $userDao->getOneUser($itemPost->getId_user());
+                            $nameUserAdd =$userAdd->getName() != null ? $userAdd->getName() : "User không tồn tại";
+                            $userUpdate = $userDao->getOneUser($itemPost->getUpdate_by());
+                            $nameUserUpdate = $userUpdate != null ? $userUpdate->getName() : "Chưa cập nhật";
                             $statusText = "Ẩn";
                             $styleStatus= "background: #616262";
                             if($status == 1) {
@@ -39,6 +48,9 @@
                                         <td class = "stt">'.$i++.'</td>
                                         <td>'.$title.'</td>
                                         <td>'.$nameNav.'</td>
+                                        <td>'.$nameUserAdd.'</td>
+                                        <td>'.$nameUserUpdate.'</td>
+                                        <td>'.$schedule.'</td>
                                         <td>
                                             <button style="'.$stylePriority.'" class = "btn_change-status" onClick="handleTogglePriority('.$id.', '.$priority.',3)">'.$statusPriority.'</button>
                                         </td>

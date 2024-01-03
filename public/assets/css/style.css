@@ -232,3 +232,11 @@
     object-fit: contain;
     object-position: center;
 }
+
+.img-fluid.rounded-start {
+    width: 100%;
+}
+
+.img-fluid.rounded-start.h-320 {
+    height: 320px;
+}

@@ -1,6 +1,6 @@
 <div class="main_app">
     <div class="header_app">
-        <h2 class="title">Posts</h2>
+        <h2 class="title">Bài viết</h2>
     </div>
     <div class="container_main">
         <div class="box__form-add">
@@ -42,6 +42,10 @@
 
                     </div>
                     <span class = 'message_error'></span>
+                </div>
+                <div class="box_form form-group">
+                    <span class="box_title">Lên lịch: <span style="color:red">*</span></span>
+                    <input type="date" id="schedule" class="input" value="<?=date('Y-m-d'); ?>" name="schedule" min="<?=date('Y-m-d'); ?>">
                 </div>
                 <div class="box_form">
                     <select name="status" id="status_nav">

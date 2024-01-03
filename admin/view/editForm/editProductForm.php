@@ -7,7 +7,7 @@
 ?>
 <div class="main_app">
     <div class="header_app">
-        <h2 class="title">Product</h2>
+        <h2 class="title">Sản phẩm</h2>
     </div>
     <div class="container_main">
         <form action="index.php?act=updateProduct" method = 'POST' enctype="multipart/form-data">

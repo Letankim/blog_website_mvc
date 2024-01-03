@@ -1,6 +1,8 @@
 <?php
 require_once PATH_ROOT_ADMIN."/DAO/SloganDao.php";
+include_once PATH_ROOT_ADMIN."/view/handleShow/showSlogan.php";
 require_once PATH_ROOT."/model/Slogan.php";
+require_once PATH_ROOT."/Lib/Time.php";
 class SloganAdminController
 {
     public function adminSlogan()
@@ -16,7 +18,7 @@ class SloganAdminController
         $topSlogan = $_POST['topSlogan'];
         $bottomSlogan = $_POST['bottomSlogan'];
         $status = $_POST['status'];
-        $date = date('Y/m/d H:i:s');
+        $date = getCurrentTime();
         $slogan = new Slogan(null, $topSlogan, $bottomSlogan, $status, $date);
         $isDone = $sloganDao->addSlogan($slogan);
         $type = "fail";

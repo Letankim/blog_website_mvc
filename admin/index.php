@@ -1,8 +1,7 @@
 <?php
     session_start();
     ob_start();
-    if(isset($_SESSION['roleAdmin']) && $_SESSION['roleAdmin'] == 1) {
-        $zone_Asia_Ho_Chi_Minh = date_default_timezone_set('Asia/Ho_Chi_Minh');
+    if(isset($_SESSION['roleAdmin']) && $_SESSION['roleAdmin'] >= 1) {
         include_once "./config/config.php";
         include_once "./config/include.php";
         if(isset($_GET['act']) && $_GET['act']) {
@@ -77,28 +76,44 @@
                     $postController->adminDeleteCommentPost();
                     break;
                 case "account":
-                    require_once "./controller/UserAdminController.php";
-                    $userController = new UserAdminController();
-                    if(isset($_POST['add-user']) && $_POST['add-user']) {
-                        $userController->adminAddUser();
+                    if($_SESSION['roleAdmin'] && $_SESSION['roleAdmin'] == 2) {
+                        require_once "./controller/UserAdminController.php";
+                        $userController = new UserAdminController();
+                        if(isset($_POST['add-user']) && $_POST['add-user']) {
+                            $userController->adminAddUser();
+                        } else {
+                            $userController->adminUser();
+                        }
                     } else {
-                        $userController->adminUser();
+                        header("Location: ?act=404");
                     }
                     break; 
                 case "editUserForm": 
-                    require_once "./controller/UserAdminController.php";
-                    $userController = new UserAdminController();
-                    $userController->adminEditFormUser();
+                    if($_SESSION['roleAdmin'] && $_SESSION['roleAdmin'] == 2) {
+                        require_once "./controller/UserAdminController.php";
+                        $userController = new UserAdminController();
+                        $userController->adminEditFormUser();
+                    } else {
+                        header("Location: ?act=404");
+                    }
                     break;
                 case "updateUser": 
-                    require_once "./controller/UserAdminController.php";
-                    $userController = new UserAdminController();
-                    $userController->adminUpdateUser();
+                    if($_SESSION['roleAdmin'] && $_SESSION['roleAdmin'] == 2) {
+                        require_once "./controller/UserAdminController.php";
+                        $userController = new UserAdminController();
+                        $userController->adminUpdateUser();
+                    } else {
+                        header("Location: ?act=404");
+                    }  
                     break; 
                 case "deleteUser": 
-                    require_once "./controller/UserAdminController.php";
+                    if($_SESSION['roleAdmin'] && $_SESSION['roleAdmin'] == 2) {
+                        require_once "./controller/UserAdminController.php";
                     $userController = new UserAdminController();
                     $userController->adminDeleteUser();
+                    } else {
+                        header("Location: ?act=404");
+                    }  
                     break;
                 case "banner": 
                     require_once "./controller/BannerAdminController.php";

@@ -28,3 +28,8 @@ Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the t
 Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/27 15:06:53
 Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/27 15:06:57
 Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/27 15:08:08
+Admin: CONNECT (SQLSTATE[HY000] [2006] MySQL server has gone away) 2023/12/29 05:16:15
+Admin: CONNECT (SQLSTATE[HY000] [2006] MySQL server has gone away) 2023/12/29 05:16:15
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/29 05:16:19
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/29 05:16:19
+Admin: CONNECT (SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it) 2023/12/29 05:16:19

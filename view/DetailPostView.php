@@ -1,7 +1,7 @@
     <meta property="og:image" content="http://letankim.id.vn/uploads/<?=$currentPost->getImg()?>"/>
     <meta name="og:title" property="og:title" content="<?=$currentPost->getTitle()?>">
     <meta name="robots" content="index, archive"/>
-    <meta property="og:description" name="og:description" content="<?=$currentPost->getTitle()?>">
+    <meta property="og:description" name="og:description" content="<?=$currentPost->getShortDesc()?>">
     <meta name="keywords" content="<?=$currentPost->getTitle()?>">
     <meta name="author" content="<?=$userPosted->getName()?>">
     <meta name="twitter:image:src" content="http://letankim.id.vn/uploads/<?=$currentPost->getImg()?>">
@@ -16,13 +16,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="./public/assets/css/itemPost.css">
-    <link rel="stylesheet" href="./public/assets/css/toast.css">
+    <link rel="stylesheet" href="./public/assets/css/itemPost.css?v=1.0">
+    <link rel="stylesheet" href="./public/assets/css/toast.css?v=1.0">
     <title><?=$currentPost->getTitle() ?></title>
 </head>
 <body>
 <div id="fb-root"></div>
-    <div class="wrapper">
         <?php
             echo showHeaderNavigation();
         ?>
@@ -62,10 +61,15 @@
                                     <?php
                                         $avatarUserPosted = $userPosted->getAvatar() == null ? "http://letankim.id.vn/uploads/default_avatar.jpg" : "./uploads/".$userPosted->getAvatar();
                                     ?>
-                                    <img src="<?=$avatarUserPosted?>" alt="Avatar default">
+                                    <img onclick="postAuthor()" src="<?=$avatarUserPosted?>" alt="Avatar default">
                                 </div>
-                                <div class="author-information">
-                                    <span class="name"><?=$userPosted->getName()?></span>
+                                <div onclick="postAuthor()" class="author-information">
+                                    <?php
+                                        $idAuthor = $userPosted->getId();
+                                        $nameAuthor = $userPosted->getName();
+                                    ?>
+                                    <span class="name"><?=$nameAuthor?></span>
+                                    <a href="./author-<?=$idAuthor?>/<?=$createLink->vn_to_str($nameAuthor)?>.html" class="link-hidden go-to-author"></a>
                                     <span class="time-post">Đăng lúc <?=$currentPost->getTime_post() ?></span>
                                 </div>
                             </div>
@@ -140,7 +144,7 @@
                             <h2 class = "title">Bài viết liên quan</h2>
                         </div>
                         <div class="box-featured-post row">
-                            <?=showPostFeatured($relatedPost)?>
+                            <?=showPostNormal($relatedPost)?>
                         </div>
                     </div>
                 </div>
@@ -189,6 +193,10 @@
         setTimeout(function() {
             ele.setAttribute('class', 'fa fa-link');
         }, 1000);
+    }
+
+    const postAuthor = () => {
+        document.querySelector('.go-to-author').click();
     }
 </script>
 </body>

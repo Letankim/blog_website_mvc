@@ -13,17 +13,22 @@ class NavigationDao {
         self::$db = new ConnectionAdmin();
     }
 
+    private function navigation($row) {
+        $id = $row['id'];
+        $name = $row['name'];
+        $status = $row['status'];
+        $date = $row['date'];
+        $navigation = new Navigation($id, $name, $status, $date);
+        return $navigation;
+    }
+
+
     function getAllNav() {
         $sql = "SELECT * FROM tbl_navigation ORDER BY id DESC";
         $resultSQL = self::$db->getAll($sql);
         $navigation = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $name = $row['name'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $nav = new Navigation($id, $name, $status, $date);
-            $navigation[] = $nav;
+            $navigation[] = $this->navigation($row);
         }
         return $navigation;
     }
@@ -33,12 +38,7 @@ class NavigationDao {
         $sql = "SELECT * FROM tbl_navigation WHERE id=:id";
         $navigation = self::$db->get_one($sql, $params);
         if($navigation) {
-            $id = $navigation['id'];
-            $name = $navigation['name'];
-            $status = $navigation['status'];
-            $date = $navigation['date'];
-            $nav = new Navigation($id, $name, $status, $date);
-            return $nav;
+            return $this->navigation($navigation);
         }
         return null;
     }
@@ -51,12 +51,7 @@ class NavigationDao {
         $resultSQL = self::$db->getAll($sql, $params);
         $navigation = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $name = $row['name'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $nav = new Navigation($id, $name, $status, $date);
-            $navigation[] = $nav;
+            $navigation[] = $this->navigation($row);
         }
         return $navigation;
     }
@@ -95,6 +90,7 @@ class NavigationDao {
         $sql = "DELETE FROM tbl_navigation WHERE id=:id";
         return self::$db->delete($sql, $params);
     }
+    
     function deleteAllNav() {
         $sql = "DELETE FROM tbl_navigation";
         return self::$db->delete($sql);

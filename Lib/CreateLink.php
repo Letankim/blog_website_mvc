@@ -16,6 +16,7 @@ class CreateLink {
         'O'=>'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
         'U'=>'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
         'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+        ''=>"?|&|!"
         );
         foreach($unicode as $nonUnicode=>$uni){
             $str = preg_replace("/($uni)/i", $nonUnicode, $str);

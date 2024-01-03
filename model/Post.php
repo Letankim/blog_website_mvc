@@ -11,9 +11,11 @@ class Post {
     protected $id_user;
     protected $time_post;
     protected $time_last_update;
+    protected $update_by;
     protected $view;
+    protected $schedule;
 
-    public function __construct($id, $title, $shortDesc, $img, $content, $status, $priority, $id_nav, $id_user, $time_post, $time_last_update, $view)
+    public function __construct($id, $title, $shortDesc, $img, $content, $status, $priority, $id_nav, $id_user, $time_post, $time_last_update, $update_by,$view, $schedule)
     {
         $this->id = $id;
         $this->title = $title;
@@ -26,8 +28,11 @@ class Post {
         $this->id_user = $id_user;
         $this->time_post = $time_post;
         $this->time_last_update = $time_last_update;
+        $this->update_by = $update_by;
         $this->view = $view;
+        $this->schedule = $schedule;
     }
+
     
     /**
      * Get the value of id
@@ -265,6 +270,46 @@ class Post {
     public function setView($view)
     {
         $this->view = $view;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of update_by
+     */ 
+    public function getUpdate_by()
+    {
+        return $this->update_by;
+    }
+
+    /**
+     * Set the value of update_by
+     *
+     * @return  self
+     */ 
+    public function setUpdate_by($update_by)
+    {
+        $this->update_by = $update_by;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of schedule
+     */ 
+    public function getSchedule()
+    {
+        return $this->schedule;
+    }
+
+    /**
+     * Set the value of schedule
+     *
+     * @return  self
+     */ 
+    public function setSchedule($schedule)
+    {
+        $this->schedule = $schedule;
 
         return $this;
     }

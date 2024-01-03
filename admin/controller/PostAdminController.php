@@ -1,8 +1,11 @@
 <?php
 require_once PATH_ROOT_ADMIN."/DAO/PostDao.php";
 require_once PATH_ROOT_ADMIN."/DAO/NavigationDao.php";
+require_once PATH_ROOT_ADMIN."/DAO/UserDao.php";
 require_once PATH_ROOT_ADMIN."/DAO/CommentDao.php";
+include PATH_ROOT_ADMIN."/view/handleShow/showPost.php";
 require_once PATH_ROOT."/Lib/Upload.php";
+require_once PATH_ROOT."/Lib/Time.php";
 require_once PATH_ROOT."/model/Post.php";
 class PostAdminController {
     public function adminPost() {
@@ -23,12 +26,12 @@ class PostAdminController {
         $content = $_POST['content'];
         $status = $_POST['status'];
         $priority = $_POST['priority'];
-        $zone_Asia_Ho_Chi_Minh = date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $time_post= date('Y/m/d H:i:s');
+        $schedule = $_POST['schedule'];
+        $time_post= getCurrentTime();
         // upload ảnh
         $target_dir = "../uploads/";
         $img = $upload->uploadImage($target_dir, $_FILES['image']);
-        $post = new Post(null, $title, $shortDesc, $img, $content, $status, $priority, $id_nav, $id_user, $time_post, null, 0);
+        $post = new Post(null, $title, $shortDesc, $img, $content, $status, $priority, $id_nav, $id_user, $time_post, null, null, 0, $schedule);
         $isDone = $postDao->addPost($post);
         $type = "fail";
         if($isDone >= 1) {
@@ -121,22 +124,22 @@ class PostAdminController {
             $upload = new Upload();
             $id = $_POST['id'];
             $id_nav = $_POST['navigation'];
-            $id_user = $_SESSION['idAdmin'];
             $title = $_POST['title_post'];
             $shortDesc = $_POST['short_desc'];
             $content = $_POST['content'];
             $status = $_POST['status'];
             $priority = $_POST['priority'];
             $view = $_POST['view'];
-            $zone_Asia_Ho_Chi_Minh = date_default_timezone_set('Asia/Ho_Chi_Minh');
-            $time_update= date('Y/m/d H:i:s');
+            $schedule = $_POST['schedule'];
+            $time_update= getCurrentTime();
+            $idAdmin = $_SESSION['idAdmin'];
             // upload ảnh
             $target_dir = "../uploads/";
             $img = $upload->uploadImage($target_dir, $_FILES['image']);
             if($img ==  "") {
                 $img =   $_POST['oldImg'];
             }
-            $post = new Post($id, $title, $shortDesc, $img, $content, $status, $priority, $id_nav, $id_user, null, $time_update, $view);
+            $post = new Post($id, $title, $shortDesc, $img, $content, $status, $priority, $id_nav, null, null, $time_update,$idAdmin, $view, $schedule);
             $isDone = $postDao->updatePost($post);
             $type = "fail";
             if($isDone >= 1) {

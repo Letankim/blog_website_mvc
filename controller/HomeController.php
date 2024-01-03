@@ -11,9 +11,24 @@ class HomeController {
         $advertiseDao = new AdvertiseDao();
         $banners = $bannerDao->showBannerSlide();
         $slogan = $sloganDao->showTopSlogan();
-        $pagePost = $postDao->allPostActiveMain();
-        $featuredPost = $postDao->getPostFeatured();
-        $viewLargePost = $postDao->getPostByView();
+        $allPosts = $postDao->allPostActiveMain();
+        $chunked_posts = [];
+        $chunkSize = 6;
+        $length = count($allPosts);
+        $start = 0;
+        $index = 0;
+        while ($start < $length && $index <= 2) {
+            $chunk = array_slice($allPosts, $start, $chunkSize);
+            $chunked_posts[] = $chunk;
+            $start += $chunkSize;
+            $index++;
+            if($index == 1) {
+                $chunkSize -=2;
+            }
+        }
+        $featuredPost = $index >= 1 ? $chunked_posts[0] : [];
+        $viewLargePost = $index >= 2 ? $chunked_posts[1] : [];
+        $postNormal = $index >=3 ? $chunked_posts[2] : [];
         $advertise = $advertiseDao->showAdvertise();
         include_once APP_ROOT."/view/HomeView.php";
     }

@@ -13,34 +13,33 @@ class AboutDao {
         self::$db = new ConnectionAdmin();
     }
 
+    private function about($row) {
+        $id = $row['id'];
+        $img = $row['img'];
+        $content = $row['content'];;
+        $status = $row['status'];
+        $date = $row['date'];
+        $introduction = new Introduction($id, $img, $content, $status, $date);
+        return $introduction;
+    }
+
     function getALlIntro() {
         $sql = "SELECT * FROM tbl_introduction ORDER BY id DESC";
         $resultSQL = self::$db->getAll($sql);
         $introductions = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $img = $row['img'];
-            $content = $row['content'];;
-            $status = $row['status'];
-            $date = $row['date'];
-            $introduction = new Introduction($id, $img, $content, $status, $date);
-            $introductions[] = $introduction;
+            $introductions[] = $this->about($row);
         }
         return $introductions;
     }
+
     function getFilterIntro($status) {
         $params = array(":status"=>$status);
         $sql = "SELECT * FROM tbl_introduction WHERE status=:status ORDER BY id DESC";
         $resultSQL = self::$db->getAll($sql, $params);
         $introductions = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $img = $row['img'];
-            $content = $row['content'];;
-            $status = $row['status'];
-            $date = $row['date'];
-            $introduction = new Introduction($id, $img, $content, $status, $date);
-            $introductions[] = $introduction;
+            $introductions[] = $this->about($row);
         }
         return $introductions;
     }
@@ -49,13 +48,7 @@ class AboutDao {
         $sql = "SELECT * FROM tbl_introduction WHERE id=:id";
         $row = self::$db->get_one($sql, $params);
         if($row) {
-            $id = $row['id'];
-            $img = $row['img'];
-            $content = $row['content'];;
-            $status = $row['status'];
-            $date = $row['date'];
-            $introduction = new Introduction($id, $img, $content, $status, $date);
-            return $introduction;
+            return $this->about($row);
         }
         return null;
     }
@@ -79,6 +72,7 @@ class AboutDao {
         $sql = "UPDATE tbl_introduction SET status=:status, img = :img, content = :content WHERE id=:id";
         return self::$db->update($sql, $params);
     }
+
     function updateStatusIntro($id, $status) {
         $params = array(
             ":id" => $id,
@@ -87,15 +81,17 @@ class AboutDao {
         $sql = "UPDATE tbl_introduction SET status=:status WHERE id=:id";
         return self::$db->update($sql, $params);
     }
+
     function deleteIntro($id) {
         $params = array(":id" => $id);
         $sql = "DELETE FROM tbl_introduction WHERE id=:id";
         return self::$db->delete($sql, $params);
     }
 
-    function deleteAllIntro() {
+    function deleteAllIntro($id) {
+        $params = array(":id" => $id);
         $sql = "DELETE FROM tbl_introduction";
-        delete($sql);
+        return self::$db->delete($sql);
     }
 }
 ?>

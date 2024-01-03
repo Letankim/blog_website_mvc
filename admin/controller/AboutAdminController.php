@@ -1,7 +1,9 @@
 <?php
 require_once PATH_ROOT_ADMIN."/DAO/AboutDao.php";
 require_once PATH_ROOT."/model/Introduction.php";
+include_once PATH_ROOT_ADMIN."/view/handleShow/showIntroduction.php";
 require_once PATH_ROOT."/Lib/Upload.php";
+require_once PATH_ROOT."/Lib/Time.php";
 class AboutAdminController {
     public function adminAbout() {
         $aboutDao = new AboutDao();
@@ -16,7 +18,7 @@ class AboutAdminController {
         $status = $_POST['status'];
         $target_dir = "../uploads/";
         $img = $upload->uploadImage($target_dir, $_FILES['image']);
-        $date= date('Y/m/d H:i:s');
+        $date= getCurrentTime();
         $about = new Introduction(null, $img, $content, $status, $date);
         $isDone = $aboutDao->addIntro($about);
         $type = "fail";

@@ -5,7 +5,7 @@
 ?>
 <div class="main_app">
     <div class="header_app">
-        <h2 class="title">Update navigation</h2>
+        <h2 class="title">Cập nhật danh mục</h2>
     </div>
     <div class="container_main">
         <form action="index.php?act=updateNavigation" method = 'POST'>

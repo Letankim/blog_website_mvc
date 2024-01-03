@@ -27,15 +27,15 @@
                     $resultReset = sendmail("Cấp lại mật khẩu trang admin", $message, $email, $username);
                 }
                 if($resultReset) {
-                    $error_message = '<p style="color: #0aff58; margin-top: 5px; font-weight: bold;">Cấp lại mật khẩu thành công. Kiểm tra email.</p>';
+                    $error_message = '<p style="text-align: center; color: #0aff58; margin-top: 5px; font-weight: bold;">Cấp lại mật khẩu thành công. Kiểm tra email.</p>';
                 } else {
-                    $error_message = '<p style="color: #ffffff; margin-top: 5px; font-weight: bold;">Hệ thống đang bận. Thử lại</p>';
+                    $error_message = '<p style="text-align: center; color: #ff0a0a; margin-top: 5px; font-weight: bold;">Hệ thống đang bận. Thử lại</p>';
                 }
             } else {
-                $error_message = '<p style="color: #ffffff; margin-top: 5px; font-weight: bold;">Tài khoản này không được cấp lại tại đây.</p>';
+                $error_message = '<p style="text-align: center; color: #ff0a0a; margin-top: 5px; font-weight: bold;">Tài khoản này không được cấp lại tại đây.</p>';
             }
         } else {
-            $error_message = '<p style="color: #ffffff; margin-top: 5px; font-weight: bold;">Không tồn tại tài khoản hoặc đang bị khóa</p>';
+            $error_message = '<p style="text-align: center; color: #ff0a0a; margin-top: 5px; font-weight: bold;">Không tồn tại tài khoản hoặc đang bị khóa</p>';
         }
     }
 ?>
@@ -45,6 +45,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../uploads/logo.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/login.css">
     <title>Reset Password</title>

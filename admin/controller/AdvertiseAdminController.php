@@ -1,7 +1,9 @@
 <?php
 require_once PATH_ROOT_ADMIN."/DAO/AdvertiseDao.php";
 require_once PATH_ROOT."/model/Advertise.php";
+include_once PATH_ROOT_ADMIN."/view/handleShow/showAdvertise.php";
 require_once PATH_ROOT."/Lib/Upload.php";
+require_once PATH_ROOT."/Lib/Time.php";
 class AdvertiseAdminController {
     public function adminAdvertise() {
         $advertiseDao = new AdvertiseDao();
@@ -17,7 +19,7 @@ class AdvertiseAdminController {
         $status = $_POST['status'];
         $target_dir = "../uploads/";
         $img =  $upload->uploadImage($target_dir, $_FILES['image']);
-        $date= date('Y/m/d H:i:s');
+        $date= getCurrentTime();
         $advertise = new Advertise(null, $name, $link, $img, $status, $date);
         $isDone = $advertiseDao->addAdvertise($advertise);
         $type = "fail";

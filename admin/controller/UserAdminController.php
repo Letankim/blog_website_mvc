@@ -1,7 +1,10 @@
 <?php
 require_once PATH_ROOT_ADMIN."/DAO/UserDao.php";
+include_once PATH_ROOT_ADMIN."/view/handleShow/showAccount.php";
 require_once PATH_ROOT."/model/User.php";
+require_once PATH_ROOT."/Lib/Time.php";
 class UserAdminController {
+    
     public function adminUser() {
         $userDao = new UserDao();
         $allUser = $userDao->getAllUsers();
@@ -16,7 +19,7 @@ class UserAdminController {
         $password = $_POST['password'];
         $role = $_POST['role'];
         $status = $_POST['status'];
-        $date= date('Y/m/d H:i:s');
+        $date= getCurrentTime();
         $password = password_hash($password, PASSWORD_DEFAULT);
         $user = new User(null, $name,$username, $password, $email, null, $status, $date, $role, 0);
         $isExistUsername = $userDao->checkUserName($username);

@@ -8,10 +8,11 @@
     $view = $currentPost->getView();
     $idNav = $currentPost->getId_nav();
     $priority = $currentPost->getPriority();
+    $schedule = $currentPost->getSchedule();
 ?>
 <div class="main_app">
     <div class="header_app">
-        <h2 class="title">Update post</h2>
+        <h2 class="title">Cập nhật bài viết</h2>
     </div>
     <div class="container_main">
         <form action="index.php?act=updatePost" method = 'POST' enctype="multipart/form-data">
@@ -56,6 +57,10 @@
                     <img src="../uploads/<?=$img?>" alt="Post" class="preview-image">
                 </div>
                 <span class = 'message_error'></span>
+            </div>
+            <div class="box_form form-group">
+                <span class="box_title">Lên lịch: <span style="color:red">*</span></span>
+                <input type="date" id="schedule" class="input" value="<?=$schedule ?>" name="schedule" min="<?=date('Y-m-d'); ?>">
             </div>
             <div class="box_form">
                 <select name="status" id="status_nav">

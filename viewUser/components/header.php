@@ -6,21 +6,21 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <base href="http://localhost/myblogMVC/">
-            <link rel="icon" type="image/png" href="./uploads/Logo.png">
+            <link rel="icon" type="image/png" href="./uploads/logo.png">
             <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
             <link rel="stylesheet" href="./public/assets/css/css_bootstrap/bootstrap.min.css">
             <link rel="stylesheet" href="./public/assets/css/css_bootstrap/bootstrap.css">
-            <link rel="stylesheet" href="./public/assets/css/base.css">
-            <link rel="stylesheet" href="./public/assets/css/style.css">
-            <link rel="stylesheet" href="./public/assets/css/form.css">
-            <link rel="stylesheet" href="./public/assets/css/responsive.css">';
+            <link rel="stylesheet" href="./public/assets/css/base.css?v=2.0">
+            <link rel="stylesheet" href="./public/assets/css/style.css?v=1.0">
+            <link rel="stylesheet" href="./public/assets/css/form.css?v=1.0">
+            <link rel="stylesheet" href="./public/assets/css/responsive.css?v=1.0">';
     }
 
     function showHeaderNavigation() {
         $result = "<header>
         <div class='container-header'>
             <a href = '.' class='logo'>
-                <img src='./uploads/Logo.png' alt='Logo'>
+                <img src='./uploads/logo.png' alt='Logo'>
             </a>
             <div class='box-menu-in-mobile hide-on-laptop hide-on-tablet'>
                 <i class='bx bx-menu'></i>
@@ -34,7 +34,7 @@
                         <a href='./post.html' class='item-nav-link'>Bài viết</a>
                     </li>
                     <li class='item-nav'>
-                        <a href='./about.html' class='item-nav-link'>Chúng tôi</a>
+                        <a href='./about.html' class='item-nav-link'>Giới thiệu</a>
                     </li>
                     <li class='item-nav'>
                         <a href='./product.html' class='item-nav-link'>Theme</a>
@@ -49,7 +49,7 @@
                         $result.='<li class="item-nav">
                                 <a href="./personal.html" class="item-nav-link">'.$username.'</a>
                             </li>
-                            <li class="item_nav">
+                            <li class="item-nav">
                                 <a href="?act=logout" class="item-nav-link">Đăng xuất</a>
                             </li>';
                     }

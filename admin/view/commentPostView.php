@@ -4,7 +4,7 @@
 ?>
 <div class="main_app">
     <div class="header_app">
-        <h2 class="title">Posts</h2>
+        <h2 class="title">Bình luận</h2>
     </div>
     <div class="container_main">
         <div class="show_list">

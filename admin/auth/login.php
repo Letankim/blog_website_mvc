@@ -5,15 +5,18 @@
     include_once "../config/config.php";
     include_once PATH_ROOT_ADMIN."/DAO/UserDao.php";
     $error_message = "";
+    if(isset($_SESSION['roleAdmin']) && $_SESSION['roleAdmin'] >= 1) {
+        header("Location: ../index.php?act=trangchu");
+    }
     if(isset($_POST['login']) && $_POST['login']) {
         $userDao = new UserDao();
         $username = $_POST['username'];
         $password = $_POST['passwordInput'];
         $user = $userDao->login($username);
-        if($user != null && $user->getUsername() != "") {
+        if($user != null) {
             $isValidLogin =  password_verify($password, $user->getPassword());
             if($isValidLogin && $user->getStatus() == 1) {
-                if($user->getRole() == 1) {
+                if($user->getRole() >= 1) {
                     $_SESSION['roleAdmin'] = $user->getRole();
                     $_SESSION['usernameAdmin'] = $user->getUsername();
                     $_SESSION['idAdmin'] = $user->getId();
@@ -41,10 +44,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../../uploads/logo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/login.css">
-    <title>Login</title>
+    <title>Login with admin</title>
 </head>
 <body>
     <div class="container_app">
@@ -59,15 +63,26 @@
                     <div class="box_input box_input_pass active">
                         <i class='bx bxs-lock' ></i>
                         <input required type="password" name="passwordInput" class = "input input_pass" placeholder="Enter your password">
-                        <i class='bx bx-show interact' ></i>
-                        <i class='bx bx-hide interact' ></i>
+                        <i class='bx bx-show' onclick="changeStatusPassword(this)"></i>
                     </div>
                     <a href="./forestPass.php" class="forest_pass">Forgot Password</a>
                     <input type="submit" value="Login" name = "login" class = "submit">
-                    <span style="color:#ffffff; display: block; margin-top: 5px; font-weight: bold;"><?=$error_message?></span>
+                    <span style="text-align: center;color:#ff0a0a; display: block; margin-top: 5px; font-weight: bold;"><?=$error_message?></span>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        const changeStatusPassword = (ele)=> {
+            let inputPassword = document.querySelector(".input_pass");
+            if(ele.classList.contains('bx-show'))  {
+                inputPassword.type = 'text';
+                ele.setAttribute('class', 'bx bx-hide');
+            } else {
+                inputPassword.type = 'password';
+                ele.setAttribute('class', 'bx bx-show');
+            }
+        }
+    </script>
 </body>
 </html>

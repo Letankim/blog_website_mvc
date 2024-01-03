@@ -13,17 +13,21 @@ class BannerDao {
         self::$db = new ConnectionAdmin();
     }
 
+    private function banner($row) {
+        $id = $row['id'];
+        $img = $row['img'];
+        $status = $row['status'];
+        $date = $row['date'];
+        $banner = new Banner($id, $img, $status, $date);
+        return $banner;
+    }
+
     function getAllBanner() {
         $sql = "SELECT * FROM tbl_banner ORDER BY id DESC";
         $banners = array();
         $resultSQL = self::$db->getAll($sql);
         foreach($resultSQL as $row) {
-            $id = $row['id'];
-            $img = $row['img'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $banner = new Banner($id, $img, $status, $date);
-            $banners[] = $banner;
+            $banners[] = $this->banner($row);
         }
         return $banners;
     }
@@ -34,12 +38,7 @@ class BannerDao {
         $banners = array();
         $resultSQL = self::$db->getAll($sql,$params);
         foreach($resultSQL as $row) {
-            $id = $row['id'];
-            $img = $row['img'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $banner = new Banner($id, $img, $status, $date);
-            $banners[] = $banner;
+            $banners[] = $this->banner($row);
         }
         return $banners;
     }
@@ -48,12 +47,7 @@ class BannerDao {
         $sql = "SELECT * FROM tbl_banner WHERE id=:id";
         $banner = self::$db->get_one($sql, $params);
         if($banner) {
-            $id = $banner['id'];
-            $img = $banner['img'];
-            $status = $banner['status'];
-            $date = $banner['date'];
-            $b = new Banner($id, $img, $status, $date);
-            return $b;
+            return $this->banner($banner);
         }
         return null;
     }
@@ -75,6 +69,7 @@ class BannerDao {
         $sql = "UPDATE tbl_banner SET status=:status, img = :img WHERE id=:id";
         return self::$db->update($sql, $params);
     }
+    
     function updateStatusBanner($id,$status) {
         $params = array(
             ":id"=>$id,
@@ -83,14 +78,11 @@ class BannerDao {
         $sql = "UPDATE tbl_banner SET status=:status WHERE id=:id";
         return self::$db->update($sql, $params);
     }
+
     function deleteBanner($id) {
         $params = array(":id"=>$id);
         $sql = "DELETE FROM tbl_banner WHERE id=:id";
         return self::$db->delete($sql, $params);
-    }
-    function deleteAllBanner() {
-        $sql = "DELETE FROM tbl_banner";
-        delete($sql);
     }
 }
 ?>

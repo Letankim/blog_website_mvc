@@ -67,8 +67,9 @@
         position: unset;
         border-bottom: unset;
     }
-    .box-featured-post .card {
+    .box-featured-post.row .card {
         border: 0;
+        padding: 0 5px;
     }
     /* post details */
     .details-post img,

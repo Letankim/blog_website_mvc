@@ -1,6 +1,8 @@
 <?php
 require_once PATH_ROOT_ADMIN."/DAO/ProductDao.php";
+include_once PATH_ROOT_ADMIN."/view/handleShow/showProduct.php";
 require_once PATH_ROOT."/model/Product.php";
+require_once PATH_ROOT."/Lib/Time.php";
 class ProductAdminController {
     public function adminProduct() {
         $productDao = new ProductDao();
@@ -14,7 +16,7 @@ class ProductAdminController {
         $linkCode = $_POST['link-code'];
         $status = $_POST['status'];
         $img = "no";
-        $date= date('Y/m/d H:i:s');
+        $date= getCurrentTime();
         $product = new Product(null, $img, $linkDemo, $linkCode, $status, $date);
         $isDone = $productDao->addProduct($product);
         $type = "fail";

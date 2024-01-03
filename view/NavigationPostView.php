@@ -14,7 +14,6 @@ $createLink = new CreateLink();
     <title><?=$nameNav?></title>
 </head>
 <body>
-    <div class="wrapper">
         <?php
             echo showHeaderNavigation();
         ?>
@@ -103,7 +102,6 @@ $createLink = new CreateLink();
         <?php
             footer();
         ?>
-    </div>
 </body>
-<script src="./upload/assets/js/app.js"></script>
+<script src="./public/assets/js/app.js"></script>
 </html>

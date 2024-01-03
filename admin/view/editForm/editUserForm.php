@@ -39,10 +39,16 @@
                     <?php
                         if($role == 1) {
                             echo '<option value="1">----Vai trò----</option>
-                            <option value="1" selected>Admin</option>';
-                        } else {
+                            <option value="1" selected>Admin</option>
+                            <option value="2">High admin</option>';
+                        } else if($role == 2) {
+                            echo '<option value="1">----Vai trò----</option>
+                            <option value="1">Admin</option>
+                            <option value="2" selected>High admin</option>';
+                        }else {
                             echo '<option value="0">----Vai trò----</option>
                             <option value="1">Admin</option>
+                            <option value="2">High admin</option>
                             <option value="0" selected>User</option>';
                         }
                     ?>
@@ -53,10 +59,10 @@
                     <option value="1">----Trạng thái----</option>
                     <?php
                         if($status == 1) {
-                            echo '<option value="1" selected>Bình thường</option>';
-                            if($role != 1) {
-                                echo '<option value="0">Vô hiệu hóa</option>';
-                            }   
+                            echo '
+                            <option value="1" selected>Bình thường</option>
+                            <option value="0">Vô hiệu hóa</option>
+                            ';
                         } else {
                             echo '<option value="1">Bình thường</option>
                             <option value="0" selected>Vô hiệu hóa</option>';

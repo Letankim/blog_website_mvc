@@ -74,17 +74,17 @@ let title = document.querySelector('.header_app .title').innerText,
     listNav = document.querySelectorAll('.nav_item'),
     titleHeader = document.querySelector('title');
     listNav[0].classList.add('active');
-    titleHeader.innerHTML = title;
+    titleHeader.innerHTML = "Admin - " + title;
 switch (title) {
     case "Thống kê":
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[0].classList.add('active');
         break;
-    case "Navigation":
+    case "Danh mục":
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[1].classList.add('active');
         break;
-    case "Update navigation":
+    case "Cập nhật danh mục":
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[1].classList.add('active');
         break;
@@ -92,27 +92,35 @@ switch (title) {
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[2].classList.add('active');
         break;
-    case "Update banner":
+    case "Cập nhật banner":
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[2].classList.add('active');
         break;
-    case "Posts": 
+    case "Bài viết": 
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[3].classList.add('active');
         break;
-    case "Update post": 
+    case "Cập nhật bài viết": 
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[3].classList.add('active');
-    break;
+        break;
+    case "Chi tiết bài viết": 
+        document.querySelector('.nav_item.active').classList.remove("active");
+        listNav[3].classList.add('active');
+        break;
+    case "Bình luận": 
+        document.querySelector('.nav_item.active').classList.remove("active");
+        listNav[3].classList.add('active');
+        break;
     case "Tài khoản": 
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[4].classList.add('active');
         break;
-    case "Update tài khoản": 
+    case "Cập nhật tài khoản": 
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[4].classList.add('active');
     break;
-    case "Introduction":
+    case "Giới thiệu":
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[5].classList.add('active');
         break;
@@ -120,11 +128,11 @@ switch (title) {
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[6].classList.add('active');
         break;
-    case "Advertise":
+    case "Popup":
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[7].classList.add('active');
         break;
-    case "Product":
+    case "Sản phẩm":
         document.querySelector('.nav_item.active').classList.remove("active");
         listNav[8].classList.add('active');
         break;

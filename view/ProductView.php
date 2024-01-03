@@ -2,7 +2,6 @@
     <title>Sản phẩm</title>
 </head>
 <body>
-    <div class="wrapper">
         <?php
             echo showHeaderNavigation();
         ?>
@@ -88,5 +87,4 @@
         <?php
             footer();
         ?>
-    </div>
 </html>

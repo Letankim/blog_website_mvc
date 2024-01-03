@@ -12,19 +12,23 @@ class AdvertiseDao {
         self::$db = new ConnectionAdmin();
     }
 
+    private function advertise($row) {
+        $id = $row['id'];
+        $name_program = $row['name_program'];
+        $link = $row['link_adver'];
+        $img = $row['img_adver'];
+        $status = $row['status'];
+        $date = $row['date'];
+        $a = new Advertise($id, $name_program, $link, $img, $status, $date);
+        return $a;
+    }
+
     function getAllAdvertise() {
         $sql = "SELECT * FROM tbl_advertiser ORDER BY id DESC";
         $resultSQL = self::$db->getAll($sql);
         $advertise = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $name_program = $row['name_program'];
-            $link = $row['link_adver'];
-            $img = $row['img_adver'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $a = new Advertise($id, $name_program, $link, $img, $status, $date);
-            $advertise[] = $a;
+            $advertise[] = $this->advertise($row);
         }
         return $advertise;
     }
@@ -34,14 +38,7 @@ class AdvertiseDao {
         $resultSQL = self::$db-> getAll($sql, $params);
         $advertise = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $name_program = $row['name_program'];
-            $link = $row['link_adver'];
-            $img = $row['img_adver'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $a = new Advertise($id, $name_program, $link, $img, $status, $date);
-            $advertise[] = $a;
+            $advertise[] = $this->advertise($row);
         }
         return $advertise;
     }
@@ -50,14 +47,7 @@ class AdvertiseDao {
         $sql = "SELECT * FROM tbl_advertiser WHERE id=:id";
         $row = self::$db->get_one($sql, $params);
         if($row) {
-            $id = $row['id'];
-            $name_program = $row['name_program'];
-            $link = $row['link_adver'];
-            $img = $row['img_adver'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $a = new Advertise($id, $name_program, $link, $img, $status, $date);
-            return $a;
+            return $this->advertise($row);;
         }
         return null;
     }
@@ -96,10 +86,6 @@ class AdvertiseDao {
         $params = array(":id"=>$id);
         $sql = "DELETE FROM tbl_advertiser WHERE id=:id";
         return self::$db->delete($sql, $params);
-    }
-    function deleteAllAdvertise() {
-        $sql = "DELETE FROM tbl_advertiser";
-        delete($sql);
     }
 }
 ?>

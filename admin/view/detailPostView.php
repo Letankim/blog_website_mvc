@@ -1,5 +1,6 @@
 <?php
     $navigationDao = new NavigationDao();
+    $userDao = new UserDao();
     $idNav = $currentPost->getId_nav();
     $title = $currentPost->getTitle();
     $content = $currentPost->getContent();
@@ -11,11 +12,16 @@
     $dateUpdated = $currentPost->getTime_last_update();
     $view = $currentPost->getView();
     $currentNav = $navigationDao->getOneNav($idNav);
+    $schedule = $currentPost->getSchedule();
     $nameNav = $currentNav->getName();
+    $userAdd = $userDao->getOneUser($currentPost->getId_user());
+    $nameUserAdd =$userAdd->getName() != null ? $userAdd->getName() : "User không tồn tại";
+    $userUpdate = $userDao->getOneUser($currentPost->getUpdate_by());
+    $nameUserUpdate = $userUpdate != null ? $userUpdate->getName() : "Chưa cập nhật";
 ?>
 <div class="main_app">
     <div class="header_app">
-        <h2 class="title">Posts</h2>
+        <h2 class="title">Chi tiết bài viết</h2>
     </div>
     <div class="container_main">
         <div class="show_list">
@@ -56,6 +62,8 @@
                         </label>
                         <p class="info-content">
                             <?= $datePost?>
+                            bởi 
+                            <b><?=$nameUserAdd?></b>
                         </p>
                     </div>
                     <div class="group-info">
@@ -64,6 +72,7 @@
                         </label>
                         <p class="info-content">
                             <?= $dateUpdated?>
+                            bởi <b><?=$nameUserUpdate?></b>
                         </p>
                     </div>
                     <div class="group-info">
@@ -72,6 +81,14 @@
                         </label>
                         <p class="info-content">
                             <?= $view?>
+                        </p>
+                    </div>
+                    <div class="group-info">
+                        <label for="">
+                            Ngày lên lịch: 
+                        </label>
+                        <p class="info-content">
+                            <?= $schedule?>
                         </p>
                     </div>
                     <div class="group-info">

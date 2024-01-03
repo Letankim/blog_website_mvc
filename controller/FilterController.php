@@ -28,5 +28,22 @@ class FilterController {
             include_once APP_ROOT."/view/FilterPostView.php";
         }
     }
+
+    public function filterByAuthor() {
+        require_once APP_ROOT."/DAO/UserDao.php";
+        $postDao = new PostDao();
+        $userDao = new UserDao();
+        if(isset($_GET['idAuthor'])) {
+            $idAuthor = $_GET['idAuthor'];
+            $resultSearch = $postDao->getPostByAuthor($idAuthor);
+            $author = $userDao->getOneUser($idAuthor);
+            $nameAuthor = $author != null ? $author->getName() : "Unknown";
+            $titleHead = "Tác giả ".$nameAuthor;
+            $messageTitle = "Tất cả ".count($resultSearch)." bài viết của ".$nameAuthor;
+            include_once APP_ROOT."/view/SearchView.php";
+        } else {
+            header("Location: ./notFound.html");
+        }
+    }
 }
 ?>

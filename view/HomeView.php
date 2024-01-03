@@ -2,7 +2,6 @@
 <title>Trang chủ</title>
 </head>
 <body>
-    <div class="wrapper">
         <?php
             echo showHeaderNavigation();
         ?>
@@ -49,30 +48,30 @@
                         <div class="content-wrapper row">
                             <div class="posts col-lg-9">
                                 <div class="title-content">
-                                    <h2 class = "title">Bài viết</h2>
+                                    <h2 class = "title">Bài viết nổi bật</h2>
                                 </div>
                                 <div class="box-post">
                                     <!-- render post form database -->
-                                    <?=showAllPost($pagePost)?>
+                                    <?=showPostFeatured($featuredPost)?>
                                 </div>
                             </div>
                             <div class="right-content col-lg-3">
                                 <div class="featured-post">
                                     <div class="title-content">
-                                        <h2 class = "title">Bài viết nổi bật</h2>
+                                        <h2 class = "title">Bài viết được xem nhiều</h2>
                                     </div>
                                     <div class="box-featured-post row">
                                         <!-- render post featured -->
-                                        <?=showPostFeatured($featuredPost)?>
+                                        <?=showPostNormal($viewLargePost)?>
                                     </div>
                                 </div>
                                 <div class="trending-post">
                                     <div class="title-content">
-                                        <h2 class = "title">Bài viết được xem nhiều</h2>
+                                        <h2 class = "title">Bài viết khác</h2>
                                     </div>
                                     <div class="box-featured-post row">
                                         <!-- render post have large view -->
-                                        <?=showPostFeatured($viewLargePost)?>
+                                        <?=showPostNormal($postNormal)?>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +90,6 @@
                 addAdvertisement($advertise);
             }
         ?>
-    </div>
     <script>
         // advertisement
         let boxAdver = document.querySelector('.box_advertisement'),

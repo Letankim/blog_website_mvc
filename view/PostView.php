@@ -23,7 +23,6 @@
     </script>
 </head>
 <body>
-    <div class="wrapper">
         <?php
             echo showHeaderNavigation();
         ?>
@@ -119,6 +118,5 @@
         <?php
             footer();
         ?>
-    </div>
 </body>
 </html>

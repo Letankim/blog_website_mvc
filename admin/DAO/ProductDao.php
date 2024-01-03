@@ -13,19 +13,23 @@ class ProductDao {
         self::$db = new ConnectionAdmin();
     }
 
+    private function product($row) {
+        $id = $row['id'];
+        $img = $row['img'];
+        $link_demo = $row['link_demo'];
+        $link_code = $row['link_code'];
+        $status = $row['status'];
+        $date = $row['date'];
+        $product = new Product($id, $img, $link_demo, $link_code, $status, $date);
+        return $product;
+    }
+
     function getAllProduct() {
         $sql = "SELECT * FROM tbl_product ORDER BY id DESC";
         $resultSQL = self::$db->getAll($sql);
         $products = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $img = $row['img'];
-            $link_demo = $row['link_demo'];
-            $link_code = $row['link_code'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $product = new Product($id, $img, $link_demo, $link_code, $status, $date);
-            $products[] = $product;
+            $products[] = $this->product($row);
         }
         return $products;
     }
@@ -34,34 +38,17 @@ class ProductDao {
         $resultSQL = self::$db->getAll($sql);
         $products = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $img = $row['img'];
-            $link_demo = $row['link_demo'];
-            $link_code = $row['link_code'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $product = new Product($id, $img, $link_demo, $link_code, $status, $date);
-            $products[] = $product;
+            $products[] = $this->product($row);
         }
         return $products;
     }
-    function getProductShow() {
-        $sql = "SELECT * FROM tbl_product WHERE status=1 ORDER BY id DESC LIMIT 1";
-        return get_one($sql);
-    }
+
     function getOneProduct($id) {
         $params = array(":id"=>$id);
         $sql = "SELECT * FROM tbl_product WHERE id=:id";
         $row = self::$db->get_one($sql, $params);
         if($row) {
-            $id = $row['id'];
-            $img = $row['img'];
-            $link_demo = $row['link_demo'];
-            $link_code = $row['link_code'];
-            $status = $row['status'];
-            $date = $row['date'];
-            $product = new Product($id, $img, $link_demo, $link_code, $status, $date);
-            return $product;
+            return $this->product($row);;
         }
         return null;
     }

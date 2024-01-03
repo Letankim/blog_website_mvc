@@ -1,6 +1,6 @@
 <div class="main_app">
     <div class="header_app">
-        <h2 class="title">Advertise</h2>
+        <h2 class="title">Popup</h2>
     </div>
     <div class="container_main">
         <div class="box__form-add">

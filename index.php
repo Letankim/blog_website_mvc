@@ -29,6 +29,11 @@
                 $navigationController = new NavigationController();
                 $navigationController->showPostNavigation();
                 break;
+            case "author":
+                include "./controller/FilterController.php";
+                $filterController = new FilterController();
+                $filterController->filterByAuthor();
+                break;
             case "loc":
                 include "./controller/FilterController.php";
                 $filterController = new FilterController();

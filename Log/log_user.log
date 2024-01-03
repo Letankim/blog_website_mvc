@@ -40,3 +40,43 @@ User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have a
 User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(username ='bloguser38') where id='38'' at line 1) 2023/12/25 15:55:11
 User: UPDATE (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(username ='bloguser39') where id='39'' at line 1) 2023/12/25 15:56:25
 User: GET BY ID (SQLSTATE[HY000]: General error: 2006 MySQL server has gone away) 2023/12/27 15:08:01
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:23:52
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:23:52
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:23:59
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:23:59
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:24:12
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:24:12
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:24:13
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:24:13
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:24:14
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:24:14
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:24:22
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION myblog.GETUTCDATE does not exist) 2023/12/28 18:24:22
+User: GET BY ID (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY P.priority desc ,P.id DESC LIMIT 5' at line 4) 2023/12/29 00:34:59
+User: GET BY ID (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY P.priority desc ,P.id DESC LIMIT 5' at line 4) 2023/12/29 00:35:31
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 00:36:01
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 00:36:04
+User: GET BY ID (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY P.priority desc ,P.id DESC LIMIT 5' at line 4) 2023/12/29 00:36:13
+User: GET BY ID (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 00:36:31
+User: GET BY ID (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 00:36:32
+User: GET BY ID (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY P.priority desc ,P.id DESC LIMIT 5' at line 4) 2023/12/29 00:36:53
+User: GET BY ID (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY P.priority desc ,P.id DESC LIMIT 5' at line 4) 2023/12/29 00:36:55
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 20:58:55
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 20:59:51
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 20:59:54
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 20:59:58
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:00:00
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':date) 
+            ORDER BY P.id DESC LIMIT 0, 5' at line 3) 2023/12/29 21:00:01
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:00:05
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:00:07
+User: GET ALL (SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':date) 
+            ORDER BY P.id DESC LIMIT 0, 5' at line 3) 2023/12/29 21:00:10
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:00:13
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:02:28
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:02:38
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:02:39
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:03:14
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:05:24
+User: GET ALL (SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens) 2023/12/29 21:05:28
+User: GET ALL (SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idUser' in 'where clause') 2023/12/29 21:30:38

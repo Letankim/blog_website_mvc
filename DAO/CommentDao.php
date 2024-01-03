@@ -11,19 +11,23 @@ class CommentDao {
     private function initializeConnection() {
         self::$db = new Connection();
     }
+
+    private function comment($row) {
+        $id = $row['id'];
+        $idUser = $row['idUser'];
+        $idPost = $row['idPost'];
+        $comment = $row['comment'];
+        $time_comment = $row['time_comment'];
+        $comment = new Comment($id, $idUser, $idPost, $comment, $time_comment);
+        return $comment;
+    }
     
     function getOneComment($id) {
         $params = array(":id"=>$id);
         $sql = "SELECT * FROM tbl_comment WHERE id=:id";
         $resultSQL = self::$db->get_one($sql, $params);
         if($resultSQL) {
-            $id = $resultSQL['id'];
-            $idUser = $resultSQL['idUser'];
-            $idPost = $resultSQL['idPost'];
-            $comment = $resultSQL['comment'];
-            $time_comment = $resultSQL['time_comment'];
-            $comment = new Comment($id, $idUser, $idPost, $comment, $time_comment);
-            return $comment;
+            return $this->comment($resultSQL);
         }
         return null;
     }
@@ -54,13 +58,7 @@ class CommentDao {
         $resultSQL = self::$db->getAll($sql, $params);
         $comments = array();
         foreach ($resultSQL as $row) {
-            $id = $row['id'];
-            $idUser = $row['idUser'];
-            $idPost = $row['idPost'];
-            $comment = $row['comment'];
-            $time_comment = $row['time_comment'];
-            $comment = new Comment($id, $idUser, $idPost, $comment, $time_comment);
-            $comments[] = $comment;
+            $comments[] = $this->comment($row);;
         }
         return $comments;
     }

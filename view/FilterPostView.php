@@ -2,7 +2,6 @@
     <title>Bài viết</title>
 </head>
 <body>
-    <div class="wrapper">
         <?php
             echo showHeaderNavigation();
         ?>
@@ -119,7 +118,6 @@
         <?php
             footer();
         ?>
-    </div>
 </body>
 <script src="./upload/assets/js/app.js"></script>
 </html>

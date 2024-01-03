@@ -12,6 +12,7 @@ RewriteRule "^([a-zA-Z0-9]+).html$" "?act=$1"
 
 RewriteRule "^post-([0-9]+)/([\w\d\S]+).html$" "?act=blogItem&id=$1&title=$2"
 RewriteRule "^danhmuc-([0-9]+)/([\w\d\S]+).html$" "?act=danhmuc&id=$1&title=$2"
+RewriteRule "^author-([0-9]+)/([\w\d\S]+).html$" "?act=author&idAuthor=$1&nameAuthor=$2"
 
 RewriteRule "^danhmuc/([0-9]+)/page-([0-9]+)/([\w\d\S]+).html$" "?act=danhmuc&id=$1&page=$2&title=$3"
 RewriteRule "^posts/page-([0-9]+).html$" "?act=post&page=$1"

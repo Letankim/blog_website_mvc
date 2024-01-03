@@ -3,7 +3,6 @@
     <title>Cá nhân</title>
 </head>
 <body>
-    <div class="wrapper">
         <?php
             echo showHeaderNavigation();
         ?>
@@ -100,7 +99,6 @@
         <?php
             footer();
         ?>
-    </div>
 <script src="./public/assets/js/personal.js"></script>
 <script src="./public/assets/js/toast.js"></script>
         <?php
